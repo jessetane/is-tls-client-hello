@@ -1,0 +1,14 @@
+{
+  "name": "is-tls-client-hello",
+  "version": "1.0.0",
+  "description": "Determine if a buffer contains a valid TLS ClientHello",
+  "scripts": {
+    "test": "node test"
+  },
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "repository": "https://github.com/jessetane/is-tls-client-hello",
+  "author": "jesse.tane@gmail.com",
+  "license": "Public domain"
+}
