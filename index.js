@@ -49,23 +49,24 @@ module.exports = function isTLSClientHello (data) {
   // make sure we have enough data to get at least the record length
   // (ContentType + ProtocolVersion + length)
   var headerSize = 5
-  if (data.length < headerSize) return false
+  if (data.length < headerSize) return -1
 
   // verify ContentType is handshake
-  if (data[0] !== 22) return false
+  if (data[0] !== 22) return -2
 
   // verify protocol version is > 3.0 && <= 3.3
   var majorVersion = data[1]
   var minorVersion = data[2]
-  if (majorVersion !== 3) return false
-  if (minorVersion < 1 || minorVersion > 3) return false
+  if (majorVersion !== 3) return -3
+  if (minorVersion < 1 || minorVersion > 3) return -3
 
   // verify we have enough data to parse the record
   var length = data[3] << 8 | data[4]
-  if (data.length < headerSize + length) return false
+  var totalLength = headerSize + length
+  if (data.length < totalLength) return totalLength
 
   // verify handshake type is client hello
-  if (data[5] !== 1) return false
+  if (data[5] !== 1) return -4
 
-  return true
+  return 1
 }

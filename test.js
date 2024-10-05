@@ -9,7 +9,7 @@ tape('http', t => {
 
   var tcpServer = net.createServer(socket => {
     socket.once('data', data => {
-      t.equal(isTLSClientHello(data), false)
+      t.equal(isTLSClientHello(data), -2)
       socket.destroy()
       tcpServer.close()
     })
@@ -30,7 +30,7 @@ tape('https', t => {
 
   var tcpServer = net.createServer(socket => {
     socket.once('data', data => {
-      t.equal(isTLSClientHello(data), true)
+      t.equal(isTLSClientHello(data), 1)
       socket.destroy()
       tcpServer.close()
     })
@@ -44,4 +44,11 @@ tape('https', t => {
       .on('error', () => {})
       .end()
   })
+})
+
+tape('returns the number of bytes needed to parse the record if the buffer is not long enough', t => {
+  t.plan(1)
+  var length = 2
+  var data = new Uint8Array([22, 3, 1, 0, length, 1])
+  t.equal(isTLSClientHello(data), 5 + length)
 })
