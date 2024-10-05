@@ -1,4 +1,4 @@
-module.exports = function isTLSClientHello (data) {
+function isTLSClientHello (data) {
   /*
   From https://tools.ietf.org/html/rfc5246:
 
@@ -70,3 +70,5 @@ module.exports = function isTLSClientHello (data) {
 
   return 1
 }
+
+export default isTLSClientHello

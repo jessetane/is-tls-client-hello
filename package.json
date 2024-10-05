@@ -1,6 +1,7 @@
 {
   "name": "is-tls-client-hello",
   "version": "1.0.0",
+  "type": "module",
   "description": "Determine if a buffer contains a valid TLS ClientHello",
   "scripts": {
     "test": "node test"

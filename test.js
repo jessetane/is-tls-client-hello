@@ -1,8 +1,8 @@
-var tape = require('tape')
-var net = require('net')
-var http = require('http')
-var https = require('https')
-var isTLSClientHello = require('./')
+import tape from 'tape'
+import net from 'net'
+import http from 'http'
+import https from 'https'
+import isTLSClientHello from './index.js'
 
 tape('http', t => {
   t.plan(1)
