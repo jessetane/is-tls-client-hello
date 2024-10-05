@@ -9,7 +9,10 @@
   "devDependencies": {
     "tap-esm": "^3.0.0"
   },
-  "repository": "https://github.com/jessetane/is-tls-client-hello",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessetane/is-tls-client-hello.git"
+  },
   "author": "jesse.tane@gmail.com",
   "license": "Public domain"
 }
