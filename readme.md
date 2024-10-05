@@ -18,5 +18,9 @@ Verifies that requests from node's HTTP and HTTPS modules can be distiguished ov
 $ npm test
 ```
 
+## Releases
+* 2.0.0
+  * It can be useful to know why a buffer does not contain a hello, in particular when the buffer is simply not long enough.
+
 ## License
 Public domain
